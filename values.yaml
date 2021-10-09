@@ -1,0 +1,27 @@
+base:
+  name: ${DEPLOYMENT_NAME}
+  namespace: ${DEPLOY_NAMESPACE}
+  env: production
+
+replicaCount: 1
+
+image:
+  public: true
+  repository: ${IMAGE}
+  tag: "${IMAGE_TAG}"
+
+service:
+  type: NodePort
+  port: 80
+  nodePort: 30000
+
+ingress:
+  enabled: false
+
+resources:
+  requests:
+    memory: 68Mi
+    cpu: 66m
+  limits:
+    memory: 170Mi
+    cpu: 166m
