@@ -1,0 +1,17 @@
+variables:
+  SERVICE_NAME: first-page
+  REGISTRY_NAMESPACE: pastikecom
+  DEPLOY_NAMESPACE: pastike-com
+
+include:
+  - 'https://raw.githubusercontent.com/pastike-com/deploy-gitlab/main/default.yaml'
+
+stages:
+  - build
+  - deploy
+
+build:
+  extends: .build
+
+deploy:
+  extends: .deploy:k8s
